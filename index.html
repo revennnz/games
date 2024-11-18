@@ -1,6 +1,9 @@
 <html><head><base href="https://accountgame.pages.dev/" /><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Game Account Marketplace</title>
+<link rel="icon" sizes="192x192" href="https://accountgame.pages.dev/more/icono192x192.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon"/>
+<title>Game Account</title>
 <style>
 :root {
     --primary-color: #1a1a1c;
@@ -422,17 +425,12 @@ function renderAccounts(accounts) {
     }
     
     accounts.forEach(account => {
-        // Add EA-specific platform icon handling
-        const platformIcon = account.platform.toLowerCase() === 'ea' ? 
-            'https://media.contentapi.ea.com/content/dam/eacom/common/ea-logo-white.png' : 
-            account.platformIcon;
-            
         const accountCard = `
             <div class="account-card" ${account.id ? `id="account-${account.id}"` : ''}>
                 <div class="account-header">
                     <img 
                         class="platform-icon" 
-                        src="${platformIcon}" 
+                        src="${account.platformIcon}" 
                         alt="icono de ${account.platform}"
                         loading="lazy"
                         onerror="this.src='https://revennnz.github.io/imgx/fallback-platform.svg'"
