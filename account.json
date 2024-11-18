@@ -15,7 +15,7 @@
         },
         {
             "platform": "Epic Games",
-            "platformIcon": "https://example.com/epic-icon.png",
+            "platformIcon": "",
             "previewImage": "https://example.com/epic-library.jpg",
             "username": "epicuser456",
             "password": "epicpass456",
