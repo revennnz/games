@@ -1,0 +1,552 @@
+<html><head><base href="https://revennnz.github.io/imgx/" /><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Game Account Marketplace</title>
+<style>
+:root {
+    --primary-color: #1a1a1c;
+    --secondary-color: #2a2a2c;
+    --accent-color: #0A84FF;
+    --text-color: #e5e5e7;
+    --border-color: #3a3a3c;
+    --hover-color: #3a3a3c;
+    --error-bg: #3a1d1d;
+    --error-text: #ff453a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding-left: 100px; /* Collapsed sidebar width + some space */
+    padding-top: 20px;
+    line-height: 1.5;
+}
+
+.page-layout {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    justify-content: center; /* Change to center */
+    padding-left: 0px; /* Remove left padding */
+    transition: all 0.3s ease;
+}
+
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 60px; /* Reduced initial width to show just the toggle */
+    height: fit-content;
+    background: var(--secondary-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar.expanded {
+    width: 260px; /* Full width when expanded */
+}
+
+.toggle-sidebar {
+    position: static; /* Remove absolute positioning */
+    margin: 0 auto 20px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.sidebar-title, .sidebar-menu {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+}
+
+.sidebar.expanded .sidebar-title,
+.sidebar.expanded .sidebar-menu {
+    opacity: 1;
+    display: block;
+}
+
+.feed-container {
+    max-width: 800px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    margin-right: calc(60px + 20px); /* Width of collapsed sidebar + gap */
+}
+
+.sidebar.expanded + .feed-container {
+    margin-left: 20px;
+}
+
+.account-card {
+    background: var(--secondary-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.account-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: var(--hover-color);
+}
+
+.account-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-header h3 {
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: var(--secondary-color);
+}
+
+.preview-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.games-list {
+    background: var(--primary-color);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.games-list h4 {
+    margin: 0 0 12px 0;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.game-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.game-item:last-child {
+    border-bottom: none;
+}
+
+.credentials {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.credential-field {
+    background: var(--primary-color);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: 'SF Mono', monospace;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.copy-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+    background: #0070E0;
+    transform: scale(1.02);
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.error {
+    background: var(--error-bg);
+    color: var(--error-text);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(255, 69, 58, 0.1);
+    border: 1px solid var(--error-text);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.toast {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.3s ease-out forwards;
+    max-width: 300px;
+    border: 1px solid var(--border-color);
+}
+
+.toast.hiding {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+.toast-icon {
+    margin-right: 12px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.menu-item {
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    list-style: none; /* Remove bullet points */
+}
+
+.menu-item:hover {
+    background: var(--hover-color);
+}
+
+.menu-item.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+    
+    .feed-container {
+        padding: 12px;
+        margin-right: 0;
+    }
+    
+    .account-card {
+        padding: 16px;
+    }
+    
+    .credentials {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: auto;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        margin: 0;
+        z-index: 100;
+    }
+
+    .sidebar.expanded {
+        height: 300px;
+        overflow-y: auto;
+    }
+
+    .page-layout {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .page-layout {
+        flex-direction: column;
+    }
+    
+    .feed-container {
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="page-layout">
+    <aside class="sidebar">
+        <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+        <h2 class="sidebar-title">Juegos</h2>
+        <ul class="sidebar-menu" id="accountMenu">
+            <!-- Menu items will be dynamically inserted here -->
+        </ul>
+    </aside>
+    <div class="feed-container" id="accountFeed">
+        <div class="loading">Cargando cuentas...</div>
+    </div>
+</div>
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const feedContainer = document.getElementById('accountFeed');
+    const menuContainer = document.getElementById('accountMenu');
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.querySelector('.sidebar');
+
+    toggleSidebar.addEventListener('click', () => {
+        sidebar.classList.toggle('expanded');
+    });
+
+    fetch('https://revennnz.github.io/imgx/account.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            feedContainer.innerHTML = '';
+            const accounts = data.accounts || data;
+            renderAccounts(accounts);
+            renderSidebarMenu(accounts);
+        })
+        .catch(error => {
+            feedContainer.innerHTML = `
+                <div class="error">
+                    Error al cargar las cuentas: ${error.message}
+                    <br>Por favor, intente nuevamente más tarde.
+                </div>
+            `;
+            console.error('Error loading accounts:', error);
+        });
+});
+
+function renderSidebarMenu(accounts) {
+    const menuContainer = document.getElementById('accountMenu');
+    menuContainer.innerHTML = '';
+    
+    accounts.filter(account => account.id).forEach(account => {
+        const firstGame = account.games && account.games.length > 0 ? account.games[0] : 'Cuenta sin nombre';
+        const menuItem = document.createElement('li');
+        menuItem.className = 'menu-item';
+        menuItem.textContent = firstGame;
+        menuItem.dataset.accountId = account.id;
+        menuItem.addEventListener('click', () => {
+            const targetElement = document.getElementById(`account-${account.id}`);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                // Update active state
+                document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                menuItem.classList.add('active');
+            }
+        });
+        menuContainer.appendChild(menuItem);
+    });
+}
+
+function renderAccounts(accounts) {
+    const feedContainer = document.getElementById('accountFeed');
+    
+    if (!Array.isArray(accounts) || accounts.length === 0) {
+        feedContainer.innerHTML = `
+            <div class="error">No hay cuentas disponibles en este momento.</div>
+        `;
+        return;
+    }
+    
+    accounts.forEach(account => {
+        // Add EA-specific platform icon handling
+        const platformIcon = account.platform.toLowerCase() === 'ea' ? 
+            'https://media.contentapi.ea.com/content/dam/eacom/common/ea-logo-white.png' : 
+            account.platformIcon;
+            
+        const accountCard = `
+            <div class="account-card" ${account.id ? `id="account-${account.id}"` : ''}>
+                <div class="account-header">
+                    <img 
+                        class="platform-icon" 
+                        src="${platformIcon}" 
+                        alt="icono de ${account.platform}"
+                        loading="lazy"
+                        onerror="this.src='https://revennnz.github.io/imgx/fallback-platform.svg'"
+                    >
+                    <h3>Cuenta de ${account.platform}</h3>
+                </div>
+                
+                <img 
+                    class="preview-image" 
+                    src="${account.previewImage}" 
+                    alt="Vista previa de biblioteca de juegos para ${account.platform}"
+                    loading="lazy"
+                    onerror="this.src='https://revennnz.github.io/imgx/fallback-preview.svg'"
+                >
+                
+                <div class="games-list">
+                    <h4>Juegos incluidos:</h4>
+                    ${Array.isArray(account.games) ? 
+                        account.games.map(game => `
+                            <div class="game-item">${game}</div>
+                        `).join('') : 
+                        '<div class="game-item">No hay juegos listados</div>'
+                    }
+                </div>
+                
+                <div class="credentials">
+                    <div class="credential-field">${account.username || 'N/A'}</div>
+                    <button class="copy-btn" onclick="copyToClipboard('${account.username || ''}', 'Usuario')">
+                        Copiar Usuario
+                    </button>
+                </div>
+                
+                <div class="credentials">
+                    <div class="credential-field">${account.password || 'N/A'}</div>
+                    <button class="copy-btn" onclick="copyToClipboard('${account.password || ''}', 'Contraseña')">
+                        Copiar Contraseña
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        feedContainer.insertAdjacentHTML('beforeend', accountCard);
+    });
+}
+
+function copyToClipboard(text, type) {
+    if (!text) {
+        showToast('¡No hay contenido para copiar!');
+        return;
+    }
+    
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            showToast(`¡${type} copiado al portapapeles!`);
+        })
+        .catch(err => {
+            console.error('Failed to copy text: ', err);
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(`¡${type} copiado al portapapeles!`);
+            } catch (err) {
+                console.error('Fallback copying failed:', err);
+                showToast('Error al copiar. Por favor, seleccione y copie el texto manualmente.');
+            }
+            document.body.removeChild(textArea);
+        });
+}
+
+function showToast(message) {
+    const toastContainer = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <span class="toast-icon">✓</span>
+        <span>${message}</span>
+    `;
+    
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('hiding');
+        setTimeout(() => {
+            toastContainer.removeChild(toast);
+        }, 300);
+    }, 2000);
+}
+
+// Add scroll listener to update active menu item based on scroll position
+document.addEventListener('scroll', () => {
+    const accounts = document.querySelectorAll('.account-card[id]');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    let currentAccount = null;
+    accounts.forEach(account => {
+        const rect = account.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+            currentAccount = account;
+        }
+    });
+    
+    if (currentAccount) {
+        const accountId = currentAccount.id.replace('account-', '');
+        menuItems.forEach(item => {
+            if (item.dataset.accountId === accountId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
+</body></html>
