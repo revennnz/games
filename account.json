@@ -26,7 +26,7 @@
             ]
         },
               {
-            "platform": "Steam",
+            "platform": "EA",
             "platformIcon": "https://example.com/steam-icon.png",
             "previewImage": "https://example.com/library-preview.jpg",
             "username": "steamuser123",
