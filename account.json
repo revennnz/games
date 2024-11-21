@@ -11,6 +11,21 @@
                 "Days Gone",  
                 "Mortal Kombat 11"    
             ]
-        }       
+        },
+        {
+            "id": "dayg",
+            "platform": "Steam",
+            "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+            "previewImage": "https://i.imgur.com/XEvhQcB.png",
+            "username": "ilovestalin88",
+            "password": "l1nexx1487",
+            "games": [
+                "Hogwarts Legacy",  
+                "Raft",  
+                "American Truck",  
+                "Euro Truck Simulator 2",  
+                "Steep"    
+            ]
+        }
     ]
 }
