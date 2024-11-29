@@ -39,6 +39,19 @@
                 "Grand Theft Auto San Andreas",  
                 "Grand Theft Auto III"     
             ]
+        },
+        {
+            "id": "lfstr",
+            "platform": "Steam",
+            "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+            "previewImage": "https://i.imgur.com/fyNtN1m.png",
+            "username": "Wifkiinson",
+            "password": "Lkasqew43",
+            "games": [
+                "Life Is Strange Before the Storm",  
+                "Life Is Strange Remastered",  
+                "Life Is Strange True Colors"       
+            ]
         }
     ]
 }
