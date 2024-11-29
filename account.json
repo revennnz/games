@@ -52,6 +52,17 @@
                 "Life Is Strange Remastered",  
                 "Life Is Strange True Colors"       
             ]
-        }
+        },
+        {
+    "id": "elden",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://i.imgur.com/sD1C6It.jpeg",
+    "username": "cinematictoaster43",
+    "password": "funpaysnowie31",
+    "games": [
+        "Elden Ring Shadow of the Erdtree"  
+    ]
+}
     ]
 }
