@@ -1,0 +1,7 @@
+href="https://accountgame.pages.dev/"
+
+<link rel="icon" sizes="192x192" href="https://accountgame.pages.dev/more/icono192x192.png" type="image/x-icon">
+<link rel="shortcut icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon">
+
+https://accountgame.pages.dev/account.json
