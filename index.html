@@ -1,4 +1,572 @@
-<html><head><base href="https://accountgame.pages.dev/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="icon" sizes="192x192" href="https://accountgame.pages.dev/more/icono192x192.png" type="image/x-icon"><link rel="shortcut icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon"><link rel="apple-touch-icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon"><title>Game Account</title><style>:root{--primary-color:#1a1a1c;--secondary-color:#2a2a2c;--accent-color:#0A84FF;--text-color:#e5e5e7;--border-color:#3a3a3c;--hover-color:#3a3a3c;--error-bg:#3a1d1d;--error-text:#ff453a}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:var(--primary-color);color:var(--text-color);margin:0;padding-left:100px;padding-top:20px;line-height:1.5}.page-layout{display:flex;gap:20px;position:relative;justify-content:center;padding-left:0;transition:all .3s ease}.sidebar{position:fixed;left:20px;top:20px;width:60px;height:fit-content;background:0 0;border-radius:16px;padding:20px;margin-top:20px;border:none;transition:width .3s ease;overflow:hidden}.sidebar.expanded{width:260px;background:var(--secondary-color);border:1px solid var(--border-color)}.toggle-sidebar{position:static;margin:0 auto 20px;display:block;width:40px;height:40px;border-radius:8px;background:0 0;border:none;color:var(--text-color);cursor:pointer;font-size:1.5rem}.toggle-sidebar:hover{background:var(--hover-color)}.sidebar-menu,.sidebar-title{opacity:0;transition:opacity .3s ease;display:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}.sidebar.expanded .sidebar-menu,.sidebar.expanded .sidebar-title{opacity:1;display:block}.search-container{position:relative}.search-container{margin:12px 0;opacity:0;display:none;transition:opacity .3s ease;width:100%}.sidebar.expanded .search-container{opacity:1;display:block}.search-input{width:100%;padding:12px;border-radius:8px;border:1px solid var(--border-color);background:var(--primary-color);color:var(--text-color);font-size:.9rem;box-sizing:border-box}.search-input:focus{outline:0;border-color:var(--accent-color)}.search-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:0 0;border:none;color:var(--text-color);cursor:pointer;padding:4px;display:none;opacity:.7;transition:opacity .2s}.search-clear:hover{opacity:1}.feed-container{max-width:800px;padding:20px;transition:margin-left .3s ease;margin-right:calc(60px + 20px)}.sidebar.expanded+.feed-container{margin-left:20px}.account-card{background:var(--secondary-color);border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,.2);transition:all .3s ease;border:1px solid var(--border-color);width:100%;box-sizing:border-box}.account-card:hover{transform:translateY(-4px);box-shadow:0 4px 20px rgba(0,0,0,.3);background:var(--hover-color)}.account-header{display:flex;align-items:center;margin-bottom:20px}.account-header h3{font-weight:600;color:var(--text-color);margin:0}.platform-icon{width:40px;height:40px;margin-right:16px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.2);background:var(--secondary-color)}.preview-image{width:100%;height:240px;object-fit:cover;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,.2);cursor:pointer;transition:transform .2s ease}.preview-image:hover{transform:scale(1.02)}.games-list{background:var(--primary-color);padding:16px;border-radius:12px;margin-bottom:20px;border:1px solid var(--border-color)}.games-list h4{margin:0 0 12px 0;color:var(--text-color);font-weight:600}.game-item{padding:8px 0;border-bottom:1px solid var(--border-color);color:var(--text-color);font-size:.95rem}.game-item:last-child{border-bottom:none}.credentials{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:12px}.credential-field{background:var(--primary-color);padding:12px 16px;border-radius:8px;font-family:'SF Mono',monospace;color:var(--text-color);border:1px solid var(--border-color)}.copy-btn{background:var(--accent-color);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;transition:all .2s ease;font-weight:500;font-size:.9rem}.copy-btn:hover{background:#0070E0;transform:scale(1.02)}.copy-btn:active{transform:scale(.98)}.loading{text-align:center;padding:40px;color:var(--text-color);font-size:1.1rem}.error{background:var(--error-bg);color:var(--error-text);padding:20px;border-radius:12px;margin-bottom:20px;text-align:center;box-shadow:0 2px 12px rgba(255,69,58,.1);border:1px solid var(--error-text)}.toast-container{position:fixed;bottom:24px;right:24px;z-index:1000}.toast{background:var(--secondary-color);color:var(--text-color);padding:16px 24px;border-radius:12px;margin:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;align-items:center;animation:slideIn .3s ease-out forwards;max-width:300px;border:1px solid var(--border-color)}.toast.hiding{animation:slideOut .3s ease-in forwards}.toast-icon{margin-right:12px;color:var(--accent-color);font-size:1.2rem}.menu-item{padding:10px 15px;margin:5px 0;border-radius:8px;cursor:pointer;transition:all .2s ease;list-style:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}.menu-item:hover{background:var(--hover-color)}.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);z-index:1000;justify-content:center;align-items:center;cursor:pointer}.modal-image{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px}.sidebar-menu{list-style:none;padding:0;margin:0}@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes slideOut{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}.scroll-to-top{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);width:40px;height:40px;background:var(--secondary-color);border:1px solid var(--border-color);border-radius:50%;cursor:pointer;display:none;justify-content:center;align-items:center;color:var(--text-color);font-size:20px;transition:all .3s ease;z-index:999}.scroll-to-top:hover{background:var(--hover-color);transform:translateX(-50%) translateY(-2px)}@media (max-width:768px){body{padding:0}.page-layout{flex-direction:column;padding:0}.sidebar{position:static;width:auto;margin:12px;left:0;top:0;height:auto;border-radius:12px}.sidebar.expanded{position:static;width:auto;height:auto;margin:12px;overflow:visible}.feed-container{margin:0 12px;padding:0;width:auto}.sidebar.expanded+.feed-container{margin:0 12px}.toggle-sidebar{width:40px;height:40px;margin:0 auto 8px}.menu-item{padding:12px 16px;margin:4px 0;font-size:1rem}.toast-container{bottom:20px;left:20px;right:20px}.sidebar-menu{margin-bottom:12px}.account-card{margin:12px 0}.search-container{margin:8px 12px}.search-input{font-size:1rem;padding:12px}.scroll-to-top{bottom:20px;right:auto}}@media (min-width:480px) and (max-width:768px){.sidebar,.sidebar.expanded{margin:16px}.feed-container{margin:0 16px}}@media (min-width:769px) and (max-width:1024px){.feed-container{padding:16px;margin-right:20px}.account-card{max-width:600px;margin-left:auto;margin-right:auto}}.preview-image{width:100%;max-width:100%;object-fit:cover}.sidebar-menu{margin-top:12px}.feed-container,.page-layout,.sidebar{transition:all .3s ease}</style></head><body><div class="page-layout"><aside class="sidebar"><button class="toggle-sidebar" id="toggleSidebar">☰</button><h2 class="sidebar-title">Juegos</h2><div class="search-container"><input class="search-input" placeholder="Buscar juegos..." aria-label="Buscar juegos"> <button class="search-clear" aria-label="Limpiar búsqueda">✕</button></div><ul class="sidebar-menu" id="accountMenu"></ul></aside><div class="feed-container" id="accountFeed"><div class="loading">Cargando cuentas...</div></div></div><div class="toast-container" id="toastContainer"></div><div class="modal-overlay" id="imageModal"><img class="modal-image" id="modalImage" alt="Preview ampliada"></div><button class="scroll-to-top" aria-label="Volver arriba">↑</button><script>document.addEventListener('DOMContentLoaded', () => {
+<html><head><base href="https://accountgame.pages.dev/" /><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" sizes="192x192" href="https://accountgame.pages.dev/more/icono192x192.png" type="image/x-icon">
+<link rel="shortcut icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://accountgame.pages.dev/more/icono512x512.png" type="image/x-icon">
+<title>Game Account</title>
+<style>
+:root {
+    --primary-color: #1a1a1c;
+    --secondary-color: #2a2a2c;
+    --accent-color: #0A84FF;
+    --text-color: #e5e5e7;
+    --border-color: #3a3a3c;
+    --hover-color: #3a3a3c;
+    --error-bg: #3a1d1d;
+    --error-text: #ff453a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding-left: 100px; /* Collapsed sidebar width + some space */
+    padding-top: 20px;
+    line-height: 1.5;
+}
+
+.page-layout {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    justify-content: center; /* Change to center */
+    padding-left: 0px; /* Remove left padding */
+    transition: all 0.3s ease;
+}
+
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 60px; /* Reduced initial width to show just the toggle */
+    height: fit-content;
+    background: transparent; /* Remove background */
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    border: none; /* Remove border */
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar.expanded {
+    width: 260px; /* Full width when expanded */
+    background: var(--secondary-color); /* Add background when expanded */
+    border: 1px solid var(--border-color); /* Add border when expanded */
+}
+
+.toggle-sidebar {
+    position: static; /* Remove absolute positioning */
+    margin: 0 auto 20px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.toggle-sidebar:hover {
+    background: var(--hover-color);
+}
+
+.sidebar-title, .sidebar-menu {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+    user-select: none; /* Make text non-selectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.sidebar.expanded .sidebar-title,
+.sidebar.expanded .sidebar-menu {
+    opacity: 1;
+    display: block;
+}
+
+.search-container {
+    position: relative; /* For positioning the clear button */
+}
+
+.search-container {
+    margin: 12px 0;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease;
+    width: 100%;
+}
+
+.sidebar.expanded .search-container {
+    opacity: 1;
+    display: block;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--primary-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 4px;
+    display: none; /* Hidden by default */
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.search-clear:hover {
+    opacity: 1;
+}
+
+.feed-container {
+    max-width: 800px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    margin-right: calc(60px + 20px); /* Width of collapsed sidebar + gap */
+}
+
+.sidebar.expanded + .feed-container {
+    margin-left: 20px;
+}
+
+.account-card {
+    background: var(--secondary-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.account-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: var(--hover-color);
+}
+
+.account-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-header h3 {
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: var(--secondary-color);
+}
+
+.preview-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.02);
+}
+
+.games-list {
+    background: var(--primary-color);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.games-list h4 {
+    margin: 0 0 12px 0;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.game-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.game-item:last-child {
+    border-bottom: none;
+}
+
+.credentials {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.credential-field {
+    background: var(--primary-color);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: 'SF Mono', monospace;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.copy-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+    background: #0070E0;
+    transform: scale(1.02);
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.error {
+    background: var(--error-bg);
+    color: var(--error-text);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(255, 69, 58, 0.1);
+    border: 1px solid var(--error-text);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.toast {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.3s ease-out forwards;
+    max-width: 300px;
+    border: 1px solid var(--border-color);
+}
+
+.toast.hiding {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+.toast-icon {
+    margin-right: 12px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.menu-item {
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    list-style: none; /* Remove bullet points */
+    user-select: none; /* Make text non-selectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.menu-item:hover {
+    background: var(--hover-color);
+}
+
+/* Image preview modal styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Remove the .menu-item.active style to prevent persistent highlight */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-to-top:hover {
+    background: var(--hover-color);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0; /* Remove body padding on mobile */
+    }
+    
+    .page-layout {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 0;
+    }
+
+    .sidebar {
+        position: static; /* Remove fixed positioning */
+        width: auto; /* Full width */
+        margin: 12px;
+        left: 0;
+        top: 0;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .sidebar.expanded {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 12px;
+        overflow: visible;
+    }
+
+    .feed-container {
+        margin: 0 12px; /* Add consistent margins */
+        padding: 0;
+        width: auto;
+    }
+
+    .sidebar.expanded + .feed-container {
+        margin: 0 12px;
+    }
+
+    .toggle-sidebar {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 8px;
+    }
+
+    /* Adjust menu items for better touch targets */
+    .menu-item {
+        padding: 12px 16px;
+        margin: 4px 0;
+        font-size: 1rem;
+    }
+
+    /* Adjust toast container position */
+    .toast-container {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    /* Ensure proper spacing between menu and content */
+    .sidebar-menu {
+        margin-bottom: 12px;
+    }
+
+    /* Adjust account cards spacing */
+    .account-card {
+        margin: 12px 0;
+    }
+
+    .search-container {
+        margin: 8px 12px;
+    }
+    
+    .search-input {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: auto; /* Remove right position as it's now centered */
+    }
+}
+
+/* Optimize for larger phones and small tablets */
+@media (min-width: 480px) and (max-width: 768px) {
+    .sidebar, .sidebar.expanded {
+        margin: 16px;
+    }
+
+    .feed-container {
+        margin: 0 16px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .feed-container {
+        padding: 16px;
+        margin-right: 20px;
+    }
+    
+    .account-card {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* General responsive improvements */
+.preview-image {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.sidebar-menu {
+    margin-top: 12px;
+}
+
+/* Ensure smooth transitions */
+.page-layout, .sidebar, .feed-container {
+    transition: all 0.3s ease;
+}
+</style>
+<script type='text/javascript' src='//pl25168179.profitablecpmrate.com/e4/df/b5/e4dfb581f7ed85d0fe7de5c9fdb84e79.js'></script>
+</head>
+<body>
+<div class="page-layout">
+    <aside class="sidebar">
+        <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+        <h2 class="sidebar-title">Juegos</h2>
+        <div class="search-container">
+            <input type="text" 
+                   class="search-input" 
+                   placeholder="Buscar juegos..." 
+                   aria-label="Buscar juegos">
+            <button class="search-clear" aria-label="Limpiar búsqueda">✕</button>
+        </div>
+        <ul class="sidebar-menu" id="accountMenu">
+            <!-- Menu items will be dynamically inserted here -->
+        </ul>
+    </aside>
+    <div class="feed-container" id="accountFeed">
+        <div class="loading">Cargando cuentas...</div>
+    </div>
+</div>
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Modal for image preview -->
+<div class="modal-overlay" id="imageModal">
+    <img class="modal-image" id="modalImage" alt="Preview ampliada">
+</div>
+
+<button class="scroll-to-top" aria-label="Volver arriba">↑</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
     const feedContainer = document.getElementById('accountFeed');
     const menuContainer = document.getElementById('accountMenu');
     const toggleSidebar = document.getElementById('toggleSidebar');
@@ -237,4 +805,6 @@ function showToast(message) {
             toastContainer.removeChild(toast);
         }, 300);
     }, 2000);
-}</script></body></html>
+}
+</script>
+</body></html>
