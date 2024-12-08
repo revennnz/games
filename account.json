@@ -63,17 +63,6 @@
     "games": [
         "Elden Ring Shadow of the Erdtree"  
     ]
-},
-        {
-    "id": "thela",
-    "platform": "Steam",
-    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
-    "username": "TheLastofUsPartI2",
-    "password": "TheLastofUs5a%678",
-    "games": [
-        "The Last of Us Parte I"  
-    ]
 }
     ]
 }
