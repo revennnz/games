@@ -63,6 +63,18 @@
     "games": [
         "Elden Ring Shadow of the Erdtree"  
     ]
+},
+        {
+    "id": "horiz",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://i.imgur.com/LrRrc9m.jpeg",
+    "username": "HorizonZeroDawnCompleteEdition",
+    "password": "Eppc953214",
+    "games": [
+        "Horizon Zero Dawn Complete Edition"  
+    ]
 }
+
     ]
 }
