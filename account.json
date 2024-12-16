@@ -74,7 +74,17 @@
     "games": [
         "Horizon Zero Dawn Complete Edition"  
     ]
+},
+        {
+    "id": "thewa",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
+    "username": "crystallil1",
+    "password": "1crysteine",
+    "games": [
+        "The Walking Dead"  
+    ]
 }
-
     ]
 }
