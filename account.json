@@ -1,18 +1,6 @@
 {
     "accounts": [
         {
-            "id": "dayg",
-            "platform": "Steam",
-            "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-            "previewImage": "https://i.imgur.com/FNNg7Id.png",
-            "username": "aooqn711",
-            "password": "wcc020525",
-            "games": [
-                "Days Gone",  
-                "Mortal Kombat 11"    
-            ]
-        },
-        {
             "id": "howl",
             "platform": "Steam",
             "platformIcon": "https://accountgame.pages.dev/more/steam.png",
@@ -53,28 +41,6 @@
                 "Life Is Strange True Colors"       
             ]
         },
-        {
-    "id": "elden",
-    "platform": "Steam",
-    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-    "previewImage": "https://i.imgur.com/sD1C6It.jpeg",
-    "username": "cinematictoaster43",
-    "password": "funpaysnowie31",
-    "games": [
-        "Elden Ring Shadow of the Erdtree"  
-    ]
-},
-        {
-    "id": "horiz",
-    "platform": "Steam",
-    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-    "previewImage": "https://i.imgur.com/LrRrc9m.jpeg",
-    "username": "HorizonZeroDawnCompleteEdition",
-    "password": "Eppc953214",
-    "games": [
-        "Horizon Zero Dawn Complete Edition"  
-    ]
-},
         {
     "id": "thewa",
     "platform": "Steam",
