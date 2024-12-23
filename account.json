@@ -45,22 +45,11 @@
     "id": "thewa",
     "platform": "Steam",
     "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
+    "previewImage": "https://i.imgur.com/gCvSox4.png",
     "username": "crystallil1",
     "password": "1crysteine",
     "games": [
         "The Walking Dead"  
-    ]
-},
-        {
-    "id": "resid",
-    "platform": "Steam",
-    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
-    "username": "deloner16",
-    "password": "YY86MK9X7F38",
-    "games": [
-        "Resident Evil 4 Remake"  
     ]
 }
     ]
