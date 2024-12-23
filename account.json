@@ -51,6 +51,18 @@
     "games": [
         "The Walking Dead"  
     ]
-}
+},
+  {
+    "id": "outla",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://i.imgur.com/jjIMk8B.png",
+    "username": "ddoozz6684",
+    "password": "Qj84wjsplay",
+    "games": [
+        "Outlast",  
+        "Outlast 2"  
+    ]
+}      
     ]
 }
