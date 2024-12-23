@@ -85,6 +85,17 @@
     "games": [
         "The Walking Dead"  
     ]
+},
+        {
+    "id": "resid",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
+    "username": "deloner16",
+    "password": "YY86MK9X7F38",
+    "games": [
+        "Resident Evil 4 Remake"  
+    ]
 }
     ]
 }
