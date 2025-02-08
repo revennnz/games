@@ -63,6 +63,22 @@
         "Outlast",  
         "Outlast 2"  
     ]
-}      
+},
+        {
+    "id": "resid",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://accountgame.pages.dev/more/no-disponible.png",
+    "username": "steamok1089773",
+    "password": "steamok987",
+    "games": [
+        "Resident Evil 4",  
+        "Metro Complete Edition",  
+        "Inside",  
+        "Limbo",  
+        "Life Is Strange 1 - 2"  
+    ]
+}
+
     ]
 }
