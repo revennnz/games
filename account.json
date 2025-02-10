@@ -16,19 +16,6 @@
             ]
         },
         {
-            "id": "gtacity",
-            "platform": "Steam",
-            "platformIcon": "https://accountgame.pages.dev/more/steam.png",
-            "previewImage": "https://i.imgur.com/AcFxv3G.png",
-            "username": "golenk15",
-            "password": "oksaalmira",
-            "games": [
-                "Grand Theft Auto Vice City",  
-                "Grand Theft Auto San Andreas",  
-                "Grand Theft Auto III"     
-            ]
-        },
-        {
             "id": "lfstr",
             "platform": "Steam",
             "platformIcon": "https://accountgame.pages.dev/more/steam.png",
