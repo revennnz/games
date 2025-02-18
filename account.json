@@ -65,7 +65,17 @@
         "Limbo",  
         "Life Is Strange 2"  
     ]
+},
+        {
+    "id": "silen",
+    "platform": "Steam",
+    "platformIcon": "https://accountgame.pages.dev/more/steam.png",
+    "previewImage": "https://i.imgur.com/xuojNp9.png",
+    "username": "pmxoxfkafa",
+    "password": "rsrqkjdhfy",
+    "games": [
+        "Silent Hill 2"  
+    ]
 }
-
     ]
 }
